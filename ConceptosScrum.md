@@ -26,3 +26,11 @@ __Construir software de manera ágil se basa en hacerlo de manera iterativa e in
 
 
 ### Roles:
+   - **Product Owner**: definir y priorizar temas y objetivos con criterios de aceptación, **<i>el QUÉ.</i>**
+
+   - **Scrum Team o Equipo**: L@s estudiantes, identifican y hacen el **<i>CÓMO.</i>**
+
+   - **Scrum Master o Facilitador**: No es un líder, ya que son **<i>equipos auto-organizados</i>** con un facilitador que les ayuda a pensar a todos juntos para obtener un resultado mejor.
+
+<i>Nota</i>: Un equipo de trabajo está integrado por miembros con distintas cualidades.
+
