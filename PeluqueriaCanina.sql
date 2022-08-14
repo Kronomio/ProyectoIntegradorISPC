@@ -18,12 +18,10 @@ USE `peluqueriacanina`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `dueno`
+-- Creo la tabla `dueno`
 --
 
 DROP TABLE IF EXISTS `dueno`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `dueno` (
   `DNI` int NOT NULL,
   `Nombre` varchar(45) NOT NULL,
@@ -32,25 +30,18 @@ CREATE TABLE `dueno` (
   `Direccion` varchar(60) NOT NULL,
   PRIMARY KEY (`DNI`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `dueno`
+-- Inserto datos en la tabla `dueno`
 --
-
-LOCK TABLES `dueno` WRITE;
-/*!40000 ALTER TABLE `dueno` DISABLE KEYS */;
 INSERT INTO `dueno` VALUES (32952933,'Alberto','Fernandez',333294295,'Altamirano 492'),(52632183,'Luciana','Bustamante',462925026,'Av. San Martin 1204'),(429482053,'Gustavo','Olivar',3828825,'Palomero 942');
-/*!40000 ALTER TABLE `dueno` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
--- Table structure for table `historial`
+-- Creo la tabla `historial`
 --
 
 DROP TABLE IF EXISTS `historial`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `historial` (
   `ID_Historial` int NOT NULL,
   `Fecha` date NOT NULL,
@@ -61,25 +52,22 @@ CREATE TABLE `historial` (
   KEY `FK_PerroID` (`Perro`),
   CONSTRAINT `FK_PerroID` FOREIGN KEY (`Perro`) REFERENCES `perro` (`ID_Perro`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `historial`
+-- Inserto datos en la tabla `historial`
 --
 
-LOCK TABLES `historial` WRITE;
-/*!40000 ALTER TABLE `historial` DISABLE KEYS */;
+
 INSERT INTO `historial` VALUES (1,'2021-05-12',1,'Vacunacion',2450),(2,'2020-02-28',2,'Cirujia',12450),(3,'2022-10-12',3,'Vacunacion',2750);
-/*!40000 ALTER TABLE `historial` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
--- Table structure for table `perro`
+-- Creo la tabla `perro`
 --
+-- 1) Realice la consulta correspondiente para crear la tabla Perro, teniendo en cuenta sus claves foráneas y primarias.
+
 
 DROP TABLE IF EXISTS `perro`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `perro` (
   `ID_Perro` int NOT NULL,
   `Nombre` varchar(20) NOT NULL,
@@ -90,25 +78,17 @@ CREATE TABLE `perro` (
   KEY `FK_DuenoDNI` (`DNI_dueno`),
   CONSTRAINT `FK_DuenoDNI` FOREIGN KEY (`DNI_dueno`) REFERENCES `dueno` (`DNI`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `perro`
+-- Ingreso datos en la tabla `perro`
 --
+-- 2) Inserte en la tabla correspondiente un nuevo animal (perro) como paciente y el dueño asociado a ese animal.
 
-LOCK TABLES `perro` WRITE;
-/*!40000 ALTER TABLE `perro` DISABLE KEYS */;
+
 INSERT INTO `perro` VALUES (1,'Lucas','2018-03-20','M',32952933),(2,'Nieve','2020-12-04','F',52632183),(3,'Lucas','2022-08-02','F',429482053);
-/*!40000 ALTER TABLE `perro` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+-- Actividad 6) Obtener todos los perros que asistieron a la peluquería en 2022
 
--- Dump completed on 2022-08-14 19:20:10
+select * from Historial where year(Fecha) = 2022; --Datos de los perros que asistieron a la peluqueria en 2022.
+
+
